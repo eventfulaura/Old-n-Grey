@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f4d125",
+              "background-light": "#f8f8f5",
+              "background-dark": "#0a0c14", // Deepened for midnight effect
+              "midnight-blue": "#0f172a",
+              "cosmic-indigo": "#1e1b4b"
+            },
+            fontFamily: {
+              "display": ["Spline Sans"],
+              "script": ["Great Vibes"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .star-field {
+        background-image: 
+          radial-gradient(circle at 2px 2px, rgba(244, 209, 37, 0.15) 1px, transparent 0);
+        background-size: 40px 40px;
+      }
+      .constellation-overlay {
+        mask-image: linear-gradient(to bottom, black, transparent);
+        -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+      }
+      .envelope-shadow {
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 1px rgba(255,255,255,0.1);
+      }
+      .gold-glow {
+        text-shadow: 0 0 15px rgba(244, 209, 37, 0.5);
+      }
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      .preserve-3d {
+        transform-style: preserve-3d;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+  <script>
+  document.getElementById("sealButton").addEventListener("click", function() {
+    window.location.href = "letter.html";
+  });
+</script>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-200 min-h-screen flex items-center justify-center overflow-hidden">
+<!-- Background Layers -->
+<div class="fixed inset-0 bg-gradient-to-b from-background-dark via-cosmic-indigo to-background-dark z-0"></div>
+<div class="fixed inset-0 star-field z-0 opacity-40"></div>
+<!-- Floating Particles/Nebula effect -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Main Mobile Container -->
+<main class="relative z-10 w-full max-w-[430px] h-screen max-h-[932px] flex flex-col items-center px-8 py-12 justify-between">
+<!-- Header Section -->
+<header class="text-center space-y-2 pt-8">
+<span class="block text-primary text-xs tracking-[0.3em] uppercase font-semibold">Limited Edition</span>
+<h1 class="text-2xl font-light tracking-wide text-white/90">Stardust &amp; Dreams</h1>
+</header>
+<!-- Envelope Container -->
+<div class="w-full flex flex-col items-center perspective-1000">
+<!-- The Envelope Body -->
+<div class="relative w-full aspect-[4/3] bg-midnight-blue rounded-lg envelope-shadow border border-white/5 overflow-hidden group">
+<!-- Constellation Background Pattern on Envelope -->
+<div class="absolute inset-0 opacity-30 constellation-overlay pointer-events-none">
+<svg fill="none" height="100%" viewbox="0 0 400 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" fill="#f4d125" r="1.5"></circle>
+<circle cx="120" cy="80" fill="#f4d125" r="1"></circle>
+<circle cx="200" cy="40" fill="#f4d125" r="2"></circle>
+<circle cx="300" cy="120" fill="#f4d125" r="1.5"></circle>
+<circle cx="350" cy="60" fill="#f4d125" r="1"></circle>
+<path d="M50 50 L120 80 L200 40 L300 120" stroke="#f4d125" stroke-dasharray="4 4" stroke-width="0.5"></path>
+<path d="M200 40 L350 60" stroke="#f4d125" stroke-dasharray="4 4" stroke-width="0.5"></path>
+<circle cx="80" cy="220" fill="#f4d125" r="1.5"></circle>
+<circle cx="150" cy="260" fill="#f4d125" r="2"></circle>
+<circle cx="280" cy="240" fill="#f4d125" r="1"></circle>
+<path d="M80 220 L150 260 L280 240" stroke="#f4d125" stroke-dasharray="4 4" stroke-width="0.5"></path>
+</svg>
+</div>
+<!-- Recipient Name -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center transform -rotate-2">
+<p class="text-primary/60 text-[10px] uppercase tracking-[0.4em] mb-1">My Amazing Love</p>
+<h2 class="font-script text-5xl text-primary gold-glow">Ronnie</h2>
+</div>
+</div>
+<!-- Envelope Flap (Top Layer) -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-1/2 bg-midnight-blue/40 backdrop-blur-[1px]" style="clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
+<div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent" style="clip-path: polygon(0 0, 100% 0, 50% 100%); border: 1px solid rgba(255,255,255,0.05)"></div>
+</div>
+<!-- Wax Seal / Button -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[-10px] z-20">
+<button id="sealButton" class="relative w-16 h-16 rounded-full flex items-center justify-center transition-transform active:scale-95 group/seal">
+
+<!-- Seal Outer Glow -->
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover/seal:bg-primary/30"></div>
+<!-- Seal Body -->
+<div class="relative w-14 h-14 bg-gradient-to-br from-primary via-yellow-600 to-yellow-800 rounded-full flex items-center justify-center shadow-lg border border-primary/50">
+<!-- Inner Seal Pattern -->
+<div class="w-10 h-10 border border-black/10 rounded-full flex items-center justify-center">
+<span class="material-icons text-white/90 text-2xl"><a href="message.html">star</span>
+</div>
+</div>
+</button>
+</div>
+</div>
+<!-- Tap Instruction -->
+<div class="mt-12 text-center animate-pulse">
+<p class="text-white/40 text-sm font-light tracking-widest flex items-center justify-center gap-2">
+<span class="h-[1px] w-8 bg-white/10"></span>
+                    TAP SEAL TO OPEN
+                    <span class="h-[1px] w-8 bg-white/10"></span>
+</p>
+</div>
+</div>
+<!-- Footer Decoration -->
+<footer class="w-full text-center pb-12">
+  <footer class="mt-8 w-full flex flex-col items-center gap-6 shrink-0">
+<div class="flex gap-6">
+
+  <!-- Home -->
+  <div class="flex flex-col items-center gap-1">
+    <a href="index.html">
+      <button class="w-12 h-12 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center text-primary/80 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">home</span>
+      </button>
+    </a>
+    <span class="text-[10px] text-white/40 uppercase tracking-widest font-medium">Home</span>
+  </div>
+
+<!-- Message -->
+  <div class="flex flex-col items-center gap-1">
+    <a href="message.html">
+      <button class="w-12 h-12 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center text-primary/80 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">chat</span>
+      </button>
+    </a>
+    <span class="text-[10px] text-white/40 uppercase tracking-widest font-medium">Message</span>
+  </div>
+
+  <!-- Snaps -->
+  <div class="flex flex-col items-center gap-1">
+    <a href="gallery.html">
+      <button class="w-12 h-12 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center text-primary/80 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">photo_camera</span>
+      </button>
+    </a>
+    <span class="text-[10px] text-white/40 uppercase tracking-widest font-medium">Snaps</span>
+  </div>
+
+  <!-- Music -->
+  <div class="flex flex-col items-center gap-1">
+    <a href="music.html">
+      <button class="w-12 h-12 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center text-primary/80 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">music_note</span>
+      </button>
+    </a>
+    <span class="text-[10px] text-white/40 uppercase tracking-widest font-medium">Music</span>
+  </div>
+
+  
+
+</div>
+
+<div class="text-[10px] text-white/30 tracking-[0.3em] uppercase flex items-center gap-4">
+<span class="h-[1px] w-4 bg-white/10"></span>
+                • Jo &amp; Ro •
+                <span class="h-[1px] w-4 bg-white/10"></span>
+</div>
+</footer>
+</main>
+<!-- Background Images for Theme Visuals (Hidden but described) -->
+<div class="hidden">
+<img class="hidden" data-alt="A deep midnight sky filled with golden stars and nebulae" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-on87t6-yzZxyWm2Ha6Xizyy5YpBp7K5wrKCOrnF7O2QqJe6NvQ_EDdISHPCoOQa7DAqVaNnkXTW_4vs1twMX9tnn_VbEQuWFXrPNaE3ES7JznhKQbs4CCNzPKPzM_19jeSSKbhu1SJV2az5hk6iXKk5OofCnEojnOOd55CIm8AnJMJF64Iwj3talff-HI82xoR_TDW5r9aZ0jdtwpNWhPJC5g0-NLOrNOCVqiC8nL6dgqF3zY6NE8iYsS1U_iNEFxVaXHVBaVeZM"/>
+<img class="hidden" data-alt="Abstract celestial gold dust on a dark navy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj_kj4dyNXd1T6lFYFK5B_JbVHLRL9bADhNtgUITv9pHTY36FvEo30Ef8_2wJJmUBMXcVw7Cy1irqQTNZAgyIhy17SSsxxniZPkxFamTN3JtGcBCJWOVby0MREq9yJFitOeFUdKup5oX2T_aQPoTsNTPGGqGLHXjEfUGwU-KbSE_Eqlg14d4FQTDScoOPnFe5vw8qINGXuDcmBzZ7VKeLYT80r0LwcnqWE0L7wuy4Vf-o6J0lt4AU0W7MaGlj72kgJel0-kMYIovZe"/>
+</div>
+</body></html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4d125",
+                        "midnight-blue": "#020617",
+                        "deep-space": "#050b1a",
+                        "gold": "#d4af37"
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans"],
+                        "script": ["Great Vibes"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --stardust: rgba(255, 255, 255, 0.6);
+        }
+        .star-field {
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+        }
+        .nebula {
+            background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.15), transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(244, 209, 37, 0.08), transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.12), transparent 50%);
+            filter: blur(60px);
+        }
+        .photo-card {
+            box-shadow: 0 0 20px var(--gold-glow);
+            border: 0.5px solid rgba(212, 175, 55, 0.5);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .photo-card:hover {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+            transform: scale(1.02) translateY(-4px);
+            z-index: 30;
+        }
+        .stardust-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 4px 1px white;
+        }
+        .constellation-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            height: 1px;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .shimmer {
+            background: linear-gradient(
+                45deg,
+                transparent 20%,
+                rgba(255, 255, 255, 0.1) 45%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.1) 55%,
+                transparent 80%
+            );
+            background-size: 300% 300%;
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 80px;
+            gap: 16px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-midnight-blue font-display text-slate-200 overflow-x-hidden selection:bg-gold/30">
+<div class="fixed inset-0 bg-deep-space z-0"></div>
+<div class="fixed inset-0 nebula z-0"></div>
+<div class="fixed inset-0 star-field z-0 opacity-40"></div>
+<main class="relative z-10 w-full max-w-[430px] mx-auto min-h-screen flex flex-col items-center px-5 py-12 pb-32">
+<header class="text-center space-y-3 mb-16">
+<div class="flex items-center justify-center gap-3 mb-2">
+<span class="h-[1px] w-8 bg-gold/40"></span>
+<span class="text-gold text-[10px] tracking-[0.5em] uppercase font-bold">What happy looks like.</span>
+<span class="h-[1px] w-8 bg-gold/40"></span>
+</div>
+<h1 class="text-4xl font-script text-white drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">Documented proof that you're stuck with me.</h1>
+</header>
+<div class="w-full masonry-grid relative">
+<div class="constellation-line w-32 rotate-45 top-[15%] left-[10%]"></div>
+<div class="constellation-line w-40 -rotate-[30deg] bottom-[25%] right-[5%]"></div>
+<div class="stardust-particle top-10 left-20"></div>
+<div class="stardust-particle bottom-40 right-10 opacity-70"></div>
+<div class="stardust-particle top-1/2 left-5 opacity-50"></div>
+<div class="col-span-2 row-span-3 relative group -rotate-1">
+<div class="absolute -top-2 -right-1 z-20">
+<span class="material-icons text-gold text-sm drop-shadow-[0_0_5px_rgba(212,175,55,1)]">stars</span>
+</div>
+<div class="w-full h-full rounded-lg photo-card overflow-hidden relative">
+<img alt="Memory 1" src="images/1.JPG"/>
+<div class="absolute inset-0 shimmer opacity-30"></div>
+</div>
+</div>
+<div class="col-span-2 row-span-2 relative group translate-y-4 rotate-2">
+<div class="w-full h-full rounded-lg photo-card overflow-hidden relative">
+<img alt="Memory 2" class="w-full h-full object-cover" src="images/8.JPG"></div>
+</div>
+</div>
+<div class="col-span-2 row-span-4 relative group -translate-y-2">
+<div class="absolute -top-1 left-2 z-20">
+<span class="material-icons text-gold text-[10px] drop-shadow-[0_0_5px_rgba(212,175,55,1)]">stars</span>
+</div>
+<div class="w-full h-full rounded-lg photo-card overflow-hidden relative">
+<img alt="Memory 3" class="w-full h-full object-cover" src="images/3.jpg"></div>
+</div>
+</div>
+<div class="col-span-2 row-span-3 relative group translate-y-2 rotate-1">
+<div class="w-full h-full rounded-lg photo-card overflow-hidden relative">
+<img alt="Memory 4" class="w-full h-full object-cover" src="images/4.JPG"></div>
+</div>
+</div>
+<div class="col-span-2 row-span-2 relative group -translate-y-12 -rotate-2">
+<div class="w-full h-full rounded-lg photo-card overflow-hidden relative">
+<img alt="Memory 5" class="w-full h-full object-cover" src="images/5.JPG"></div>
+</div>
+</div>
+<div class="col-span-2 row-span-3 relative group -translate-y-8">
+<div class="absolute top-1/2 -left-2 z-20">
+<span class="material-icons text-gold text-xs drop-shadow-[0_0_5px_rgba(212,175,55,1)]">stars</span>
+</div>
+<div class="w-full h-full rounded-lg photo-card overflow-hidden relative">
+<img alt="Memory 6" class="w-full h-full object-cover" src="images/6.jpg"></div>
+</div>
+</div>
+<div class="col-span-2 row-span-4 relative group -translate-y-4">
+<div class="w-full h-full rounded-lg photo-card overflow-hidden relative">
+<img alt="Memory 7" class="w-full h-full object-cover" src="images/7.jpeg"></div>
+</div>
+</div>
+</div>
+
+
+<div class="mt-16 text-center space-y-6">
+<button class="px-10 py-3.5 rounded-full bg-white/5 border border-gold/30 backdrop-blur-xl text-white font-light tracking-[0.25em] text-[10px] hover:bg-gold/10 transition-all active:scale-95 flex items-center gap-3 mx-auto shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+<span class="material-symbols-outlined text-gold text-lg">auto_fix_high</span><a href="music.html">
+                Everything I couldn't say out loud.
+            </a></button>
+<div class="flex items-center justify-center gap-6 py-8">
+<div class="h-[0.5px] w-16 bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+<span class="material-icons text-gold/40 text-base animate-pulse">auto_awesome</span>
+<div class="h-[0.5px] w-16 bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+</div>
+</div>
+</div>
+
+<div class="flex gap-8">
+<!-- Home -->
+  <div class="flex flex-col items-center gap-1">
+    <a href="index.html">
+      <button class="w-12 h-12 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center text-primary/80 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">home</span>
+      </button>
+    </a>
+    <span class="text-[10px] text-white/40 uppercase tracking-widest font-medium">Home</span>
+  </div>
+
+<!-- Message -->
+  <div class="flex flex-col items-center gap-1">
+    <a href="message.html">
+      <button class="w-12 h-12 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center text-primary/80 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">chat</span>
+      </button>
+    </a>
+    <span class="text-[10px] text-white/40 uppercase tracking-widest font-medium">Message</span>
+  </div>
+
+  <!-- Snaps -->
+  <div class="flex flex-col items-center gap-1">
+    <a href="gallery.html">
+      <button class="w-12 h-12 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center text-primary/80 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">photo_camera</span>
+      </button>
+    </a>
+    <span class="text-[10px] text-white/40 uppercase tracking-widest font-medium">Snaps</span>
+  </div>
+
+  <!-- Music -->
+  <div class="flex flex-col items-center gap-1">
+    <a href="music.html">
+      <button class="w-12 h-12 rounded-full border border-primary/20 bg-primary/5 flex items-center justify-center text-primary/80 active:scale-90 transition-transform">
+        <span class="material-symbols-outlined">music_note</span>
+      </button>
+    </a>
+    <span class="text-[10px] text-white/40 uppercase tracking-widest font-medium">Music</span>
+  </div>
+
+  
+
+</div>
+</div>
+
+</main>
+
+</body></html>

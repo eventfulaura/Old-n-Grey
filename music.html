@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f4d125",
+            "background-light": "#f8f8f5",
+            "background-dark": "#0a0c14",
+            "midnight-blue": "#0f172a",
+            "cosmic-indigo": "#1e1b4b"
+          },
+          fontFamily: {
+            "display": ["Spline Sans"],
+            "script": ["Great Vibes"]
+          },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+          animation: {
+            'twinkle-slow': 'twinkle 4s ease-in-out infinite',
+            'twinkle-mid': 'twinkle 3s ease-in-out infinite 1s',
+            'twinkle-fast': 'twinkle 2s ease-in-out infinite 0.5s',
+            'shimmer': 'shimmer 10s linear infinite',
+          },
+          keyframes: {
+            twinkle: {
+              '0%, 100%': { opacity: 0.2, transform: 'scale(1)' },
+              '50%': { opacity: 1, transform: 'scale(1.2)' },
+            },
+            shimmer: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' },
+            }
+          }
+        },
+      },
+    }
+  </script>
+<style type="text/tailwindcss">
+    .star {
+      @apply absolute rounded-full bg-white;
+    }
+    .gold-glow {
+      text-shadow: 0 0 20px rgba(244, 209, 37, 0.8), 0 0 10px rgba(244, 209, 37, 0.4);
+    }
+    .player-glass {
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    }
+    .album-art-glow {
+      box-shadow: 0 0 40px rgba(244, 209, 37, 0.15);
+    }
+    .bg-nebula {
+      background: radial-gradient(circle at 50% 50%, rgba(30, 27, 75, 0.8) 0%, rgba(10, 12, 20, 1) 100%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+  <audio id="audioPlayer" src="body n soul.mp3"></audio>
+
+<body class="bg-background-dark font-display text-slate-200 min-h-screen flex items-center justify-center overflow-hidden antialiased">
+<div class="fixed inset-0 bg-nebula z-0"></div>
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="star w-1 h-1 top-[10%] left-[15%] animate-twinkle-slow opacity-40"></div>
+<div class="star w-0.5 h-0.5 top-[25%] left-[45%] animate-twinkle-fast opacity-60"></div>
+<div class="star w-1.5 h-1.5 top-[15%] left-[80%] animate-twinkle-mid opacity-30 shadow-[0_0_8px_white]"></div>
+<div class="star w-1 h-1 top-[40%] left-[10%] animate-twinkle-mid opacity-50"></div>
+<div class="star w-0.5 h-0.5 top-[60%] left-[85%] animate-twinkle-slow opacity-70"></div>
+<div class="star w-1 h-1 top-[75%] left-[20%] animate-twinkle-fast opacity-40"></div>
+<div class="star w-0.5 h-0.5 top-[90%] left-[50%] animate-twinkle-mid opacity-60"></div>
+<div class="star w-1.5 h-1.5 top-[50%] left-[90%] animate-twinkle-slow opacity-20 shadow-[0_0_6px_white]"></div>
+<div class="star w-1 h-1 top-[80%] left-[70%] animate-twinkle-fast opacity-50"></div>
+<div class="star w-0.5 h-0.5 top-[30%] left-[30%] animate-twinkle-mid opacity-40"></div>
+<div class="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-pulse"></div>
+<div class="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-cosmic-indigo/30 rounded-full blur-[120px]"></div>
+</div>
+<main class="relative z-10 w-full max-w-[430px] h-screen max-h-[932px] flex flex-col items-center px-8 py-12 justify-between">
+<header class="text-center space-y-2 pt-4">
+<span class="block text-primary/80 text-[10px] tracking-[0.4em] uppercase font-bold">Soundtrack to loving you.</span>
+<h1 class="text-2xl font-light tracking-[0.1em] text-white">Music &amp; Vibes</h1>
+</header>
+<div class="w-full space-y-10 flex flex-col items-center">
+<div class="w-full player-glass rounded-[2rem] p-8 flex flex-col items-center space-y-8">
+<div class="relative w-64 h-64 rounded-xl overflow-hidden album-art-glow ring-1 ring-white/10">
+<img alt="Album Art"  src="images/playlist.jpg"></div>
+<div class="absolute bottom-4 left-5 flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></div>
+</div>
+</div>
+<div class="text-center w-full">
+<h3 class="text-xl font-medium text-white mb-1 tracking-wide">Till we are Old & Grey</h3>
+<p class="text-xs text-slate-400 font-light tracking-[0.15em] uppercase">Body &amp; Soul</p>
+</div>
+<div class="w-full space-y-6">
+<div class="w-full h-1 bg-white/5 rounded-full overflow-hidden relative">
+<div id="progressBar" class="absolute top-0 left-0 w-0 h-full bg-gradient-to-r from-primary/50 to-primary rounded-full"></div>
+<div class="flex justify-between text-[10px] text-white/40 tracking-widest">
+  <span id="currentTime">0:00</span>
+  <span id="duration">0:00</span>
+</div>
+
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="material-symbols-outlined text-white/30 text-xl hover:text-primary transition-colors cursor-pointer">shuffle</span>
+<div class="flex items-center gap-8">
+<span class="material-symbols-outlined text-white text-2xl cursor-pointer">skip_previous</span>
+<div id="playButton" class="w-14 h-14 bg-white/95 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform cursor-pointer">
+  <span id="playIcon" class="material-symbols-outlined text-background-dark text-3xl">play_arrow</span>
+</div>
+
+<span class="material-symbols-outlined text-white text-2xl cursor-pointer">skip_next</span>
+</div>
+<span class="material-symbols-outlined text-white/30 text-xl hover:text-primary transition-colors cursor-pointer">repeat</span>
+</div>
+</div>
+</div>
+<br>
+<button class="w-full py-4 border border-primary/30 rounded-full flex items-center justify-center gap-3 active:scale-95 transition-all bg-primary/5 backdrop-blur-sm group hover:border-primary/60">
+<span class="text-primary tracking-[0.3em] font-semibold uppercase text-[10px]"><a href="index.html">Close Letter</a></span>
+<span class="material-symbols-outlined text-primary text-sm animate-pulse">star</span>
+</button>
+</div>
+
+  
+
+  
+
+</div>
+
+<footer class="w-full text-center pb-6">
+<div class="flex flex-col items-center gap-4">
+<div class="flex gap-6">
+<span class="material-icons text-primary/10 text-[10px] animate-twinkle-slow">auto_awesome</span>
+<span class="material-icons text-primary/30 text-xs animate-twinkle-mid">auto_awesome</span>
+<span class="material-icons text-primary/10 text-[10px] animate-twinkle-fast">auto_awesome</span>
+</div>
+<p class="font-script text-5xl text-primary gold-glow py-2">Always and Forever</p>
+</div>
+</footer>
+
+</main>
+<div class="hidden">
+<img class="hidden" data-alt="A deep midnight sky filled with golden stars and nebulae" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-on87t6-yzZxyWm2Ha6Xizyy5YpBp7K5wrKCOrnF7O2QqJe6NvQ_EDdISHPCoOQa7DAqVaNnkXTW_4vs1twMX9tnn_VbEQuWFXrPNaE3ES7JznhKQbs4CCNzPKPzM_19jeSSKbhu1SJV2az5hk6iXKk5OofCnEojnOOd55CIm8AnJMJF64Iwj3talff-HI82xoR_TDW5r9aZ0jdtwpNWhPJC5g0-NLOrNOCVqiC8nL6dgqF3zY6NE8iYsS1U_iNEFxVaXHVBaVeZM"/>
+<img class="hidden" data-alt="Abstract celestial gold dust on a dark navy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj_kj4dyNXd1T6lFYFK5B_JbVHLRL9bADhNtgUITv9pHTY36FvEo30Ef8_2wJJmUBMXcVw7Cy1irqQTNZAgyIhy17SSsxxniZPkxFamTN3JtGcBCJWOVby0MREq9yJFitOeFUdKup5oX2T_aQPoTsNTPGGqGLHXjEfUGwU-KbSE_Eqlg14d4FQTDScoOPnFe5vw8qINGXuDcmBzZ7VKeLYT80r0LwcnqWE0L7wuy4Vf-o6J0lt4AU0W7MaGlj72kgJel0-kMYIovZe"/>
+</div>
+<script>
+  const audio = document.getElementById("audioPlayer");
+  const playButton = document.getElementById("playButton");
+  const playIcon = document.getElementById("playIcon");
+  const progressBar = document.getElementById("progressBar");
+  const currentTimeEl = document.getElementById("currentTime");
+  const durationEl = document.getElementById("duration");
+
+  // Format time (mm:ss)
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  }
+
+  // Play / Pause
+  playButton.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      playIcon.textContent = "pause";
+    } else {
+      audio.pause();
+      playIcon.textContent = "play_arrow";
+    }
+  });
+
+  // Update duration
+  audio.addEventListener("loadedmetadata", () => {
+    durationEl.textContent = formatTime(audio.duration);
+  });
+
+  // Update progress
+  audio.addEventListener("timeupdate", () => {
+    const progressPercent = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = progressPercent + "%";
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+</script>
+
+</body></html>
